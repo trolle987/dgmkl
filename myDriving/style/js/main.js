@@ -26,7 +26,13 @@ function capture(sender){
         }
     else
     {
-        $(".removePhoto").html("Take Photo");
+        removePicture();
+    }
+}
+
+function removePicture()
+{   
+    $(".removePhoto").html("Take Photo");
         $(".removePhoto").removeClass("removePhoto").addClass("takePhoto");
         
         var smallImage = document.getElementById('smallImage');
@@ -35,7 +41,6 @@ function capture(sender){
         // Show the captured photo.
         smallImage.src = null;
         imageData = null;
-    }
 }
 
 function cameraApp(){}
@@ -62,7 +67,8 @@ that._destinationType = navigator.camera.DestinationType;
             that._onFail.apply(that,arguments);
         },{
             quality: 50,
-            destinationType: that._destinationType.DATA_URL
+            destinationType: that._destinationType.FILE_URI,
+            saveToPhotoAlbum: true
         });
     },
     
@@ -113,7 +119,7 @@ that._destinationType = navigator.camera.DestinationType;
         smallImage.style.display = 'block';
     
         // Show the captured photo.
-        smallImage.src = "data:image/jpeg;base64," + data;
+        smallImage.src = data;
         var button = id("btnTakePhoto");
         imageData = data;
 

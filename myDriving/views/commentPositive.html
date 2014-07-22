@@ -3,13 +3,44 @@
 
     function Insert(e) {
         var jsonString = JSON.stringify({ RegPlate: $("#txtRegPlate").val(), Comment: $("#txtComment").val(), Picture: imageData, Type: 1 });
+
         $.ajax({
             url: crudServiceBaseUrl + "AddComment?comment=" + jsonString,
             dataType: "jsonp",
             type:"POST",
             success: function (result) {
-                $("#txtRegPlate").val("");
+               
+                
+                
+var win = function(r) {
+     $("#txtRegPlate").val("");
                 $("#txtComment").val("");
+    removePicture();
+}
+
+var fail = function(error) {
+    alert("An error has occurred: Code = " + error.code);
+}
+
+ authHeaderValue = function(username, password) {
+    var tok = username + ':' + password;
+    var hash = btoa(tok);
+    return "Basic " + hash;
+};
+                
+var options = new FileUploadOptions();
+options.fileKey="file";
+options.fileName=imageData.substr(imageData.lastIndexOf('/')+1);
+options.mimeType="image/jpeg";
+options.headers = {
+        Connection: "close"
+    }
+    options.chunkedMode = false;
+
+var ft = new FileTransfer();
+ft.upload(imageData, encodeURI("http://mydriving.atic-solutions.com/commentPictures"), win, fail, options);
+
+                
             },
             error: function (result, error) {
             }

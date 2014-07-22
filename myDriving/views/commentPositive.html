@@ -1,0 +1,46 @@
+<script>
+    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/Services/Comment.svc/";
+
+    function Insert(e) {
+        var jsonString = JSON.stringify({ RegPlate: $("#txtRegPlate").val(), Comment: $("#txtComment").val(), Picture: imageData, Type: 1 });
+        $.ajax({
+            url: crudServiceBaseUrl + "AddComment?comment=" + jsonString,
+            dataType: "jsonp",
+            type:"POST",
+            success: function (result) {
+                $("#txtRegPlate").val("");
+                $("#txtComment").val("");
+            },
+            error: function (result, error) {
+            }
+        });
+    };
+    
+     $("#submitForm").kendoValidator();
+</script>
+
+<div data-role="view" id="commentPositiveView" data-layout="mainlayout" data-title="Bravo, let's give praise" data-show="show">
+    <form id="submitForm">
+    <ul data-role="listview" data-style="inset">
+        <li>
+            <label>
+                Registration plate:
+                    <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" />
+            </label>
+        </li>
+        <li>
+            <label>
+                Comment:
+                    <textarea style="resize: none" id="txtComment" placeholder="Great driver..." required></textarea>
+            </label>
+        </li>
+    </ul>
+        
+        <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
+    <div class="buttonContainer">
+        <a class="button submitButton takePhoto" data-role="button" data-click="capture" type="submit" id="btnTakePhoto">Take Photo</a>
+        <br>
+        <a class="button submitButton" data-role="button" data-click="Insert" type="submit">Praise</a>
+    </div>
+        </form>
+</div>

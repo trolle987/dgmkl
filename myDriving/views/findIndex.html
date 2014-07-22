@@ -1,0 +1,65 @@
+<script>
+    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/Services/Comment.svc/";
+
+    function mobileListViewDataBindInitFlat() {
+        var dataSource = new kendo.data.DataSource({
+            transport: {
+                read:
+                        function (options) {
+                            $.ajax({
+                                url: crudServiceBaseUrl + "GetCommentsByRegPlate?regPlate=" + $("#txtRegPlate").val(),
+                                dataType: "jsonp",
+                                error: function () {
+                                    options.error(result);
+                                    
+                                },
+                                success: function (result) {
+                                    options.success(result);
+                                }
+                            });
+                        }
+            }
+        });
+
+        $("#comment-listview").kendoMobileListView({
+            dataSource: dataSource,
+            template: $("#customListViewTemplate").html(),
+            pullToRefresh: true
+        });
+    }
+</script>
+
+<script type="text/x-kendo-template" id="customListViewTemplate">
+   
+   # if(Type === 1){ # 
+    <div class="positiveComment">
+    ${Comment}
+       </div>
+    # }else{ #
+       <div class="negativeComment">
+    ${Comment}
+        </div>
+    # } #
+    
+</script>
+
+<div data-role="view" id="findIndexView" data-layout="mainlayout" data-title="Medals of Honor" data-stretch="true">
+    <div class="searchContainer">
+        <div class="searchDiv">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label>
+                    Registration plate:
+                    <input type="text" id="txtRegPlate" placeholder="OS333NM" />
+                </label>
+            </li>
+        </ul>
+        <div class="buttonContainer">
+            <a class="button submitButton" data-role="button" data-click="mobileListViewDataBindInitFlat">Find</a>
+        </div>
+            </div>
+        <div data-role="scroller" class="commentScroller">
+            <ul id="comment-listview"></ul>
+        </div>
+    </div>
+</div>

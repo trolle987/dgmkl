@@ -1,0 +1,37 @@
+<script>
+    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/Services/Comment.svc/";
+
+    function Insert(e) {
+        var jsonString = JSON.stringify({ RegPlate: $("#txtRegPlate").val(), Comment: $("#txtComment").val(), Type: 2 });
+        $.ajax({
+            url: crudServiceBaseUrl + "AddComment?comment=" + jsonString,
+            dataType: "jsonp",
+            success: function (result) {
+                 $("#txtRegPlate").val("");
+                 $("#txtComment").val("");
+            },
+            error: function (result, error) {
+            }
+        });
+    };
+</script>
+
+<div data-role="view" id="commentNegativeView" data-layout="mainlayout" data-title="Oh no, someone's been naughty">
+   <ul data-role="listview" data-style="inset">
+        <li>
+            <label>
+                Registration plate:
+                    <input type="text" id="txtRegPlate" placeholder="OS333NM" />
+            </label>
+        </li>
+        <li>
+            <label>
+                Comment:
+                    <textarea style="resize: none" id="txtComment" placeholder="This is disaster..."></textarea>
+            </label>
+        </li>
+    </ul>
+    <div class="buttonContainer">
+        <a class="button submitButton" data-role="button" data-click="Insert">Punish</a>
+    </div>
+</div>

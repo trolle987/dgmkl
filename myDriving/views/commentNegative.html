@@ -1,37 +1,46 @@
-<script>
-    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/Services/Comment.svc/";
-
-    function Insert(e) {
-        var jsonString = JSON.stringify({ RegPlate: $("#txtRegPlate").val(), Comment: $("#txtComment").val(), Type: 2 });
-        $.ajax({
-            url: crudServiceBaseUrl + "AddComment?comment=" + jsonString,
-            dataType: "jsonp",
-            success: function (result) {
-                 $("#txtRegPlate").val("");
-                 $("#txtComment").val("");
-            },
-            error: function (result, error) {
-            }
-        });
-    };
-</script>
-
-<div data-role="view" id="commentNegativeView" data-layout="mainlayout" data-title="Oh no, someone's been naughty">
-   <ul data-role="listview" data-style="inset">
-        <li>
-            <label>
-                Registration plate:
-                    <input type="text" id="txtRegPlate" placeholder="OS333NM" />
-            </label>
-        </li>
-        <li>
-            <label>
-                Comment:
-                    <textarea style="resize: none" id="txtComment" placeholder="This is disaster..."></textarea>
-            </label>
-        </li>
-    </ul>
-    <div class="buttonContainer">
-        <a class="button submitButton" data-role="button" data-click="Insert">Punish</a>
-    </div>
+<div data-role="view" id="commentNegativeView" data-layout="mainlayout" data-title="Oh no, someone's been naughty" data-show="show">
+    <form id="submitForm">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label>
+                    Registration plate:
+                    <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" />
+                </label>
+            </li>
+            <li>
+                <label>
+                    Comment: <textarea style="resize: none" id="txtComment" placeholder="This is disaster..." required></textarea>
+                </label>
+            </li>
+        </ul>
+        <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
+        <div class="buttonContainer">
+            <a class="button submitButton takePhoto" data-role="button" data-click="capture" type="submit" id="btnTakePhoto">Take Photo</a>
+            <br>
+            <a class="button submitButton" data-role="button" data-click="Insert" type="submit">Punish</a>
+        </div>
+    </form>
 </div>
+
+<script>
+    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/api/comment/";
+
+    function Insert() {
+        kendo.ui.progress($("#submitForm"), true);
+        var jsonString = JSON.stringify({ RegPlate: $("#txtRegPlate").val(), Comment: $("#txtComment").val(), Picture : imageData, Type: 2 });
+        $.ajax({
+                   url: crudServiceBaseUrl + 'Post/',
+                   type: 'POST',
+                   contentType: "application/json; charset=utf-8",
+                   data: jsonString,
+                   success: function (results) {
+                       $("#txtRegPlate").val('');
+                       $("#txtComment").val('');
+                       removePicture();
+                       kendo.ui.progress($("#submitForm"), false);
+                   }
+               });
+    };
+    
+    $("#submitForm").kendoValidator();
+</script>

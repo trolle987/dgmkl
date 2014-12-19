@@ -67,7 +67,7 @@ that._destinationType = navigator.camera.DestinationType;
             that._onFail.apply(that,arguments);
         },{
             quality: 50,
-            destinationType: that._destinationType.FILE_URI,
+            destinationType: that._destinationType.DATA_URL,
             saveToPhotoAlbum: true
         });
     },
@@ -119,7 +119,7 @@ that._destinationType = navigator.camera.DestinationType;
         smallImage.style.display = 'block';
     
         // Show the captured photo.
-        smallImage.src = data;
+        smallImage.src = "data:image/jpeg;base64," + data;
         var button = id("btnTakePhoto");
         imageData = data;
 

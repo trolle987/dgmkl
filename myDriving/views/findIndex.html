@@ -1,23 +1,33 @@
+<div data-role="view" id="findIndexView" data-layout="mainlayout" data-title="Medals of Honor" data-stretch="true">
+    <div class="searchContainer">
+        <div class="searchDiv">
+        <ul data-role="listview" data-style="inset">
+            <li>
+                <label>
+                    Registration plate:
+                    <input type="text" id="txtRegPlate" placeholder="OS333NM" />
+                </label>
+            </li>
+        </ul>
+        <div class="buttonContainer">
+            <a class="button submitButton" data-role="button" data-click="mobileListViewDataBindInitFlat">Find</a>
+        </div>
+            </div>
+        <div data-role="scroller" class="commentScroller">
+            <ul id="comment-listview"></ul>
+        </div>
+    </div>
+</div>
+
 <script>
-    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/Services/Comment.svc/";
+    var crudServiceBaseUrl = "http://mydriving.atic-solutions.com/api/comment/";
 
     function mobileListViewDataBindInitFlat() {
         var dataSource = new kendo.data.DataSource({
             transport: {
-                read:
-                        function (options) {
-                            $.ajax({
-                                url: crudServiceBaseUrl + "GetCommentsByRegPlate?regPlate=" + $("#txtRegPlate").val(),
-                                dataType: "jsonp",
-                                error: function () {
-                                    options.error(result);
-                                    
-                                },
-                                success: function (result) {
-                                    options.success(result);
-                                }
-                            });
-                        }
+              read:{
+                        url: crudServiceBaseUrl + 'GetCommentsByRegPlate/' + $('#txtRegPlate').val(),
+                        contentType: "application/json"}
             }
         });
 
@@ -42,24 +52,3 @@
     # } #
     
 </script>
-
-<div data-role="view" id="findIndexView" data-layout="mainlayout" data-title="Medals of Honor" data-stretch="true">
-    <div class="searchContainer">
-        <div class="searchDiv">
-        <ul data-role="listview" data-style="inset">
-            <li>
-                <label>
-                    Registration plate:
-                    <input type="text" id="txtRegPlate" placeholder="OS333NM" />
-                </label>
-            </li>
-        </ul>
-        <div class="buttonContainer">
-            <a class="button submitButton" data-role="button" data-click="mobileListViewDataBindInitFlat">Find</a>
-        </div>
-            </div>
-        <div data-role="scroller" class="commentScroller">
-            <ul id="comment-listview"></ul>
-        </div>
-    </div>
-</div>

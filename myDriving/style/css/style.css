@@ -1,19 +1,53 @@
-.centerButton {
-    text-align: center;
-    height: 70px;
-    width: 100px;
-    display: block;
-    position: absolute;
-    left: 50%;
-    margin-left: -50px; /*half width*/
+@font-face
+{
+    font-family: 'open_sans_bold';
+    src: url('fonts/OpenSans-Bold-webfont.eot');
+    src: url('fonts/OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/OpenSans-Bold-webfont.woff') format('woff'),
+    url('fonts/OpenSans-Bold-webfont.ttf') format('truetype'),
+    url('fonts/OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.buttonContainer {
+@font-face
+{
+    font-family: 'open_sans_light';
+    src: url('fonts/OpenSans-Light-webfont.eot');
+    src: url('fonts/OpenSans-Light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/OpenSans-Light-webfont.woff') format('woff'),
+    url('fonts/OpenSans-Light-webfont.ttf') format('truetype'),
+    url('fonts/OpenSans-Light-webfont.svg#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, .km-view, .km-content
+{
+    background-color: #f0f2f5 !important;
+}
+
+.km-filter-wrap > input:focus
+{
+    border-color: #369;
+}
+
+.centerButton
+{
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 5%;
+}
+
+.buttonContainer
+{
     margin: 0 1em 1em 1em;
     position: relative;
 }
 
-.submitButton {
+.submitButton
+{
     text-align: center;
     height: 70px;
     width: 100%;
@@ -21,85 +55,189 @@
     padding: 0 !important;
 }
 
-.topButton {
-    top: 25%;
+#logoText
+{
+    position: absolute;
+    background: url('../img/logoText.png') no-repeat;
+    height: 10%;
+    width: 60%;
+    top: 2%;
+    left: 20%;
+    display: block;
+    background-size: 100%;
 }
 
-.bottomButton {
-    top: 60%;
+.homeBtn
+{
+    border: none;
+    height: 10%;
+    width: 90%; 
+    font: 3.3vh Arial;
+    font-weight: bold;
+    padding: 5%;
+}
+.homeBtn span
+{ 
+    color: #fff !important; 
 }
 
-.km-root .selected-button {
+.spanHome
+{
+    position: absolute;
+    text-align: center;
+    color: #a4a9ae !important;
+    font: 2.6vh "open_sans_bold";
+}
+
+#spanFirstHome
+{ 
+    top: 15%;
+}
+
+#spanSecondHome
+{ 
+    top: 56%;
+}
+
+.spanLarger
+{
+    font-size: 3.3vh;
+}
+
+#btnCommentPositive
+{
+    top: 32%;
+    background: #a0d468;
+    color: #81b449;
+}
+
+#btnCommentPositive.km-state-active
+{
+    color: #9ad657;
+    background: #b0e973;
+}
+
+#btnCommentNegative
+{
+    top: 44%;
+    background: #ed5565;
+    color: #da4453;
+}
+
+#btnCommentNegative.km-state-active
+{
+    color: #e84959;
+    background: #ff5d6e;
+}
+
+#btnMyRegistration
+{
+    top: 73%;
+    background: #fc6e51;
+    color: #e9573f;
+}
+
+#btnMyRegistration.km-state-active
+{
+    color: #fe6951;
+    background: #ff8a72;
+}
+
+#btnLatest
+{
+    top: 85%;
+    background: #ac92ec;
+    color: #967adc;
+}
+
+#btnLatest.km-state-active
+{
+    color: #a184eb;
+    background: #bea4ff;
+}
+
+.km-root .selected-button
+{
     color: #fff;
     background-color: #f60;
 }
 /* solid filled buttons in iOS7 should override the border-color */
-.km-ios7 .selected-button {
+.km-ios7 .selected-button
+{
     border-color: transparent;
 }
 
 .km-ios .head,
-.km-blackberry .head {
+.km-blackberry .head
+{
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
-#commentPositiveView .km-view-title{
+#commentPositiveView .km-view-title
+{
     background-color: #CBE8BA;
 }
 
-#commentNegativeView .km-view-title{
+#commentNegativeView .km-view-title
+{
     background-color: #FF8A84;
 }
 
-.km-listinset > li:first-child {
+.km-listinset > li:first-child
+{
     border-top: 1px solid rgba(76, 83, 86, 0.2) !important;
 }
 
-.km-listinset > li:last-child {
+.km-listinset > li:last-child
+{
     border-bottom: 1px solid rgba(76, 83, 86, 0.2)!important;
 }
 
-
-
-.searchContainer{
+.searchContainer
+{
     display: -webkit-box;
-        -webkit-box-orient: vertical;
-        display: -moz-box;
-        -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    display: -moz-box;
+    -moz-box-orient: vertical;
 }
 
-.commentScroller{
-    -webkit-box-flex:1; 
+.commentScroller
+{
+    -webkit-box-flex: 1; 
     -moz-box-flex: 1;
 }
 
-.searchDiv{
-    margin:10px 0 10px 0; 
+.searchDiv
+{
+    margin: 10px 0 10px 0; 
     -webkit-box-flex: 0%;
-        -moz-box-flex:  0%;
+    -moz-box-flex: 0%;
 }
 
-.commentScroller .km-list>li{
+.commentScroller .km-list>li
+{
     border-style: none;
     background: transparent;
     text-align: center;
 }
 
-.positiveComment{
+.positiveComment
+{
     background-color: green;
 }
 
-.negativeComment{
+.negativeComment
+{
     background-color: red;
 }
 
-.positiveComment, .negativeComment{
+.positiveComment, .negativeComment
+{
     padding: 0.7em;
 }
 
-#submitForm {
+#submitForm
+{
     position: relative;
 }
-
-

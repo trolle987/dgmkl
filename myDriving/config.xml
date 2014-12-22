@@ -21,8 +21,8 @@
 
 	<preference name="orientation" value="portrait" />
 
-  <gap:splash src="splash.png" gap:role="default"/>
-  <preference name="SplashScreenDelay" value="10000"/>
+  <gap:splash src="splashscreen.png" gap:role="default"/>
+  
 
   <gap:plugin name="org.apache.cordova.splashscreen" />
 </widget>

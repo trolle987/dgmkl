@@ -22,6 +22,16 @@
     font-style: normal;
 }
 
+.displayNone
+{
+    display: none; 
+}
+
+.displayBlock
+{
+    display: block;
+}
+
 body, .km-view, .km-content
 {
     background-color: #f0f2f5 !important;
@@ -32,27 +42,10 @@ body, .km-view, .km-content
     border-color: #369;
 }
 
-.centerButton
-{
-    text-align: center;
-    display: block;
-    position: absolute;
-    left: 5%;
-}
-
 .buttonContainer
 {
     margin: 0 1em 1em 1em;
     position: relative;
-}
-
-.submitButton
-{
-    text-align: center;
-    height: 70px;
-    width: 100%;
-    display: block !important;
-    padding: 0 !important;
 }
 
 #logoText
@@ -67,7 +60,7 @@ body, .km-view, .km-content
     background-size: 100%;
 }
 
-.homeBtn
+.buttons
 {
     border: none;
     height: 10%;
@@ -75,10 +68,13 @@ body, .km-view, .km-content
     font: 3.3vh Arial;
     font-weight: bold;
     padding: 5%;
+    position: absolute;
+    left: 5%;
 }
-.homeBtn span
+
+.buttons span
 { 
-    color: #fff !important; 
+    color: #fff !important;
 }
 
 .spanHome
@@ -156,11 +152,126 @@ body, .km-view, .km-content
     background: #bea4ff;
 }
 
+.titleBar
+{
+    font: 4vh "open_sans_bold";
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    padding: 3.7%;
+    text-align: center;
+}
+
+.titleBar span
+{
+    color: #fff !important; 
+}
+
+#commentPositiveView .titleBar
+{
+    background: #a0d468;
+    color: #81b449;
+}
+
+#commentNegativeView .titleBar
+{
+    background: #ed5565;
+    color: #da4453;
+}
+
+#submitForm .spanFirstComment, #submitForm .spanSecondComment
+{
+    position: absolute;
+    left: 5%;
+    font: 3vh "open_sans_light";
+    color: #768082 !important;
+}
+
+.spanFirstComment
+{
+    top: 14%;
+}
+
+.spanSecondComment
+{
+    top: 29%;
+}
+
+input
+{
+    position: absolute;
+    top: 19%;
+    left: 5%;
+    height: 8%;
+    width: 90%; 
+    border: 0.5vh solid #e3e4e8 !important;
+    border-radius: 3px;
+    font: 3vh "open_sans_light";
+    padding: 2%;
+}
+
+textarea
+{
+    position: absolute;
+    top: 34%;
+    left: 5%;
+    height: 15%;
+    width: 90%; 
+    border: 0.5vh solid #e3e4e8 !important;
+    border-radius: 3px;
+    font: 3vh "open_sans_light";
+    padding: 2%;
+}
+
+.previewImage
+{
+    display: none;
+    top: 50%; 
+    position: absolute;
+}
+
+.btnTakePhoto, .btnRemovePhoto
+{
+    top: 73%;
+    background: #fc6e51;
+    color: #e9573f !important;
+}
+
+.btnTakePhoto.km-state-active, .btnRemovePhoto.km-state-active
+{
+    color: #fe6951;
+    background: #ff8a72;
+}
+
+.btnSubmit
+{
+    top: 85%;
+}
+
+.btnSubmit.positive
+{
+    background: #a0d468;
+    color: #81b449 !important; 
+}
+
+.btnSubmit.negative
+{
+    background: #ed5565;
+    color: #da4453;
+}
+
+.btnSubmit.km-state-active
+{
+    color: #9ad657 !important;
+    background: #b0e973;
+}
+
 .km-root .selected-button
 {
-    color: #fff;
+    color: #fff !important;
     background-color: #f60;
 }
+
 /* solid filled buttons in iOS7 should override the border-color */
 .km-ios7 .selected-button
 {
@@ -237,7 +348,14 @@ body, .km-view, .km-content
     padding: 0.7em;
 }
 
-#submitForm
+.km-content, .km-stretched-view
 {
     position: relative;
+}
+
+#submitForm
+{
+    position: absolute;
+
+    width: 100%;
 }

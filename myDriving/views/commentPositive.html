@@ -1,24 +1,19 @@
-<div data-role="view" id="commentPositiveView" data-layout="mainlayout" data-title="Bravo, let's give praise" data-show="show">
-    <form id="submitForm">
-        <ul data-role="listview" data-style="inset">
-            <li>
-                <label>
-                    Registration plate:
-                    <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" />
-                </label>
-            </li>
-            <li>
-                <label>
-                    Comment: <textarea style="resize: none" id="txtComment" placeholder="Great driver..." required></textarea>
-                </label>
-            </li>
-        </ul>
-        <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
-        <div class="buttonContainer">
-            <a class="button submitButton takePhoto" data-role="button" data-click="capture" type="submit" id="btnTakePhoto">Take Photo</a>
-            <br>
-            <a class="button submitButton" data-role="button" data-click="Insert" type="submit">Praise</a>
-        </div>
+<div data-role="view" id="commentPositiveView" data-layout="mainlayout" data-show="show">
+    <!--<a class="nav-button" data-align="left" data-role="backbutton">Back</a>-->
+    <div class="titleBar"><span>Bravo, let's give praise</span></div>
+    <form id="submitForm" class="positive">
+
+        <span class="spanFirstComment">Registration plate:</span><br>
+        <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" /><br>
+
+        <span class="spanSecondComment">Comment:</span><br>
+        <textarea style="resize: none" id="txtComment" placeholder="Great driver..." required></textarea>
+
+        <img id="smallImage" class="previewImage" src="" />
+
+        <a class="buttons btnTakePhoto" data-role="button" data-click="capture" id="btnTakePhoto">TAKE A SHOT</a>
+        <a class="buttons btnTakePhoto displayNone" data-role="button" data-click="removePicture" id="btnRemovePhoto">REMOVE</a>
+        <a class="btnSubmit positive buttons" data-role="button" data-click="Insert">PRAISE</a>
     </form>
 </div>
 

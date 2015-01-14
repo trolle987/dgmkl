@@ -1,24 +1,19 @@
-<div data-role="view" id="commentNegativeView" data-layout="mainlayout" data-title="Oh no, someone's been naughty" data-show="show">
-    <form id="submitForm">
-        <ul data-role="listview" data-style="inset">
-            <li>
-                <label>
-                    Registration plate:
-                    <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" />
-                </label>
-            </li>
-            <li>
-                <label>
-                    Comment: <textarea style="resize: none" id="txtComment" placeholder="This is disaster..." required></textarea>
-                </label>
-            </li>
-        </ul>
-        <img style="display:none;margin:5px auto; width:120px; height:120px;" id="smallImage" src="" />
-        <div class="buttonContainer">
-            <a class="button submitButton takePhoto" data-role="button" data-click="capture" type="submit" id="btnTakePhoto">Take Photo</a>
-            <br>
-            <a class="button submitButton" data-role="button" data-click="Insert" type="submit">Punish</a>
-        </div>
+<div data-role="view" id="commentNegativeView" data-layout="mainlayout" data-show="show">
+    <!--<a class="nav-button" data-align="left" data-role="backbutton">Back</a>-->
+    <div class="titleBar"><span>Oh no, someone's been naughty</span></div>
+    <form id="submitForm" class="negative">
+
+        <span class="spanFirstComment">Registration plate:</span><br>
+        <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" /><br>
+
+        <span class="spanSecondComment">Comment:</span><br>
+        <textarea style="resize: none" id="txtComment" placeholder="This is disaster..." required></textarea>
+
+        <img id="smallImage" class="previewImage" src="" />
+
+        <a class="buttons btnTakePhoto" data-role="button" data-click="capture" id="btnTakePhoto">TAKE A SHOT</a>
+        <a class="buttons btnTakePhoto displayNone" data-role="button" data-click="removePicture" id="btnRemovePhoto">REMOVE</a>
+        <a class="btnSubmit negative buttons" data-role="button" data-click="Insert">PUNISH</a>
     </form>
 </div>
 

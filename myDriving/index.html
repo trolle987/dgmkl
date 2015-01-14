@@ -23,44 +23,51 @@
 
         <div data-role="view" id="homeView" data-layout="mainlayout" data-stretch="true">
             <div id="logoText"></div>
-            <div id="spanFirstHome" class="spanHome"><span>You noticed a driver who stands out in<br> 
-                                                           some way and you really want to share<br>  
-                                                           his work with the world. Is it good or bad?</span><br> 
-                                                     <span class="spanLarger">DECIDE NOW</span></div>
-            <a id="btnCommentPositive" class="centerButton homeBtn" data-role="button" href="views/commentPositive.html"><span>GOOD</span></a>
-            <a id="btnCommentNegative" class="centerButton homeBtn" data-role="button" href="views/commentNegative.html">BAD</a>
+            <div id="spanFirstHome" class="spanHome">
+                <span>You noticed a driver who stands out in<br>
+                    some way and you really want to share<br>
+                    his work with the world. Is it good or bad?</span><br>
+                <span class="spanLarger">DECIDE NOW</span>
+            </div>
+            <a id="btnCommentPositive" class="buttons" data-role="button" href="views/commentPositive.html">GOOD</a>
+            <a id="btnCommentNegative" class="buttons" data-role="button" href="views/commentNegative.html">BAD</a>
 
-            <div id="spanSecondHome" class="spanHome"><span>You did something stupid? Or worthy of<br> 
-                                                            praise? Maybe someone spotted you.<br>  
-                                                            You could never know!</span><br> 
-                                                      <span class="spanLarger">TILL NOW</span></div>
-            <a id="btnMyRegistration" class="centerButton homeBtn" data-role="button" href="views/findIndex.html">MY REGISTRATION</a>
-            <a id="btnLatest" class="centerButton homeBtn" data-role="button" href="views/commentIndex.html">LATEST</a>
+            <div id="spanSecondHome" class="spanHome">
+                <span>You did something stupid? Or worthy of<br>
+                    praise? Maybe someone spotted you.<br>
+                    You could never know!</span><br>
+                <span class="spanLarger">TILL NOW</span>
+            </div>
+            <a id="btnMyRegistration" class="buttons" data-role="button" href="views/findIndex.html">MY REGISTRATION</a>
+            <a id="btnLatest" class="buttons" data-role="button" href="views/commentIndex.html">LATEST</a>
         </div>
 
-        <div data-role="layout" data-id="mainlayout" data-show="toggleBackButton">
-            <header data-role="header">
-                <div data-role="navbar">
-                    <a class="nav-button" data-align="left" data-role="backbutton">Back</a>
-                    <span data-role="view-title"></span>
-                </div>
-            </header>
+        <!--<div data-role="layout" data-id="mainlayout" data-show="toggleBackButton">
+        <header data-role="header">
+        <div data-role="navbar">
+                    
+        <span data-role="view-title"></span>
         </div>
+        </header>
+        </div>-->
 
         <script>
             
-            $("#btnCommentPositive").css('box-shadow','0 '+ ($(window).height() * 0.4) / 100 + 'px'+ ' 0 0');   
-            $("#btnCommentNegative").css('box-shadow','0 '+ ($(window).height() * 0.4) / 100 + 'px'+ ' 0 0');
-            $("#btnMyRegistration").css('box-shadow','0 '+ ($(window).height() * 0.4) / 100 + 'px'+ ' 0 0');
-            $("#btnLatest").css('box-shadow','0 '+ ($(window).height() * 0.4) / 100 + 'px'+ ' 0 0');
-            
-            function toggleBackButton(e) {
-                if (e.view.id === "/") {
-                    e.view.element.find("[data-role=header]").css("visibility", "hidden");
-                } else {
-                    e.view.element.find("[data-role=header]").css("visibility", "visible");
-                }
+            $("#btnCommentPositive").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');   
+            $("#btnCommentNegative").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
+            $("#btnMyRegistration").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
+            $("#btnLatest").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
+           
+            /*function toggleBackButton(e) {
+            if (e.view.id === "/") {
+            alert();
+            e.view.element.find("[data-role=header]").css("visibility", "hidden");
+            e.view.element.find("[class=km-view-title]").css("visibility", "hidden");
+            } else {
+            alert("else");
+            e.view.element.find("[data-role=header]").css("visibility", "visible");
             }
+            }*/
         </script>
 
         <script>

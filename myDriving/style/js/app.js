@@ -23,7 +23,11 @@ MYAPP.show = (function() {
         setTimeout(MYAPP.run, 250)    
     } else {
         // attach to deviceready event, which is fired when phonegap is all good to go.
-        document.addEventListener('deviceready', MYAPP.run, false);
+        document.addEventListener('onDeviceReady', MYAPP.run, false);
         
     }
 })();
+
+function onDeviceReady() {
+        navigator.splashscreen.hide();
+    }

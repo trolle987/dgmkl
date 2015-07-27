@@ -179,7 +179,15 @@ body, .km-view, .km-content
     color: #da4453;
 }
 
-#submitForm .spanFirstComment, #submitForm .spanSecondComment
+#findIndexView .titleBar
+{
+    background: #fc6e51;
+    color: #e9573f;
+}
+
+#submitForm .spanFirstComment,
+.searchContainer .spanFirstComment,
+#submitForm .spanSecondComment
 {
     position: absolute;
     left: 5%;
@@ -241,6 +249,18 @@ textarea
 {
     color: #fe6951;
     background: #ff8a72;
+}
+
+.btnFind
+{
+    background: #4fc1e9;
+    color: #3bafda !important;
+}
+
+.btnFind.km-state-active
+{
+    color: #43c0ef;
+    background: #56d2fd;
 }
 
 .btnSubmit
@@ -353,9 +373,15 @@ textarea
     position: relative;
 }
 
-#submitForm
+#submitForm,
+.searchContainer
 {
     position: absolute;
 
     width: 100%;
+}
+
+.clearfix
+{
+    clear: both; 
 }

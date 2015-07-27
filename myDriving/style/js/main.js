@@ -16,11 +16,16 @@ function show() {
     $(".titleBar").css('height', ($(window).height() * 10) / 100 + 'px');
     $(".titleBar").css('font-size', ($(window).height() * 3.6) / 100 + 'px');
     $("#submitForm").css('top', ($(window).height() * 10) / 100 + 'px');
+    $(".searchContainer").css('top', ($(window).height() * 10) / 100 + 'px');
     $("#submitForm").css('height', ($(window).height() * 90) / 100 + 'px');
+    $(".searchContainer").css('height', ($(window).height() * 90) / 100 + 'px');
     $("#submitForm .spanFirstComment").css('top', ($(window).height() * 4) / 100 + 'px');
+    $(".searchContainer .spanFirstComment").css('top', ($(window).height() * 4) / 100 + 'px');
     $("#submitForm .spanFirstComment, #submitForm .spanSecondComment").css('font-size', ($(window).height() * 3) / 100 + 'px');
+    $(".searchContainer .spanFirstComment").css('font-size', ($(window).height() * 3) / 100 + 'px');
     $("#submitForm .spanSecondComment").css('top', ($(window).height() * 19) / 100 + 'px');
     $("#submitForm input").css('top', ($(window).height() * 9) / 100 + 'px');
+    $(".searchContainer input").css('top', ($(window).height() * 9) / 100 + 'px');
     $("#submitForm textarea").css('top', ($(window).height() * 24) / 100 + 'px');
     $("#submitForm .previewImage").css('top', ($(window).height() * 40) / 100 + 'px');
     $("#txtRegPlate, #txtComment").css('font-size', ($(window).height() * 3) / 100 + 'px');
@@ -28,12 +33,17 @@ function show() {
     $(".buttons").css('height', ($(window).height() * 10) / 100 + 'px');
     $(".btnTakePhoto, .btnRemovePhoto").css('top', ($(window).height() * 63) / 100 + 'px');
     $("#submitForm .btnSubmit").css('top', ($(window).height() * 75) / 100 + 'px');
+    $(".searchContainer .btnSubmit").css('top', ($(window).height() * 75) / 100 + 'px');
     $(".titleBar").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
     $(".btnTakePhoto").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
     $(".btnSubmit").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
+    $(".btnFind").css('box-shadow', '0 ' + ($(window).height() * 0.4) / 100 + 'px' + ' 0 0');
+    $(".btnFind").css('top', ($(window).height() * 18) / 100 + 'px');
     $(".previewImage").css('height', ($(window).height() * 20) / 100 + 'px');
     $(".previewImage").css('width', ($(window).height() * 20) / 100 + 'px');
     $(".previewImage").css('left', ($(window).width() - ($(window).height() * 20) / 100) / 2 + 'px');
+    $(".commentScroller").css('top', ($(window).height() * 24) / 100 + 'px');
+    
 }
 
 function capture(sender) { 

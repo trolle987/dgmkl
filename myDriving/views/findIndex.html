@@ -1,20 +1,15 @@
-<div data-role="view" id="findIndexView" data-layout="mainlayout" data-title="Medals of Honor" data-stretch="true">
-    <div class="searchContainer">
+<div data-role="view" id="findIndexView" data-layout="mainlayout" data-show="show">
+    <div class="titleBar">
+        <span>Medals of honor</span>
+    </div>
+    <div class="searchContainer" data-role="scroller">
         <div class="searchDiv">
-        <ul data-role="listview" data-style="inset">
-            <li>
-                <label>
-                    Registration plate:
-                    <input type="text" id="txtRegPlate" placeholder="OS333NM" />
-                </label>
-            </li>
-        </ul>
-        <div class="buttonContainer">
-            <a class="button submitButton" data-role="button" data-click="mobileListViewDataBindInitFlat">Find</a>
+            <span class="spanFirstComment">Registration plate:</span><br>
+            <input type="text" id="txtRegPlate" placeholder="OS333NM" required validationMessage="Enter {0}" /><br>
+            <a class="buttons btnFind" data-role="button" data-click="mobileListViewDataBindInitFlat">Find</a>
         </div>
-            </div>
-        <div data-role="scroller" class="commentScroller">
-            <ul id="comment-listview"></ul>
+        <div class="commentScroller">
+            <ul id="comment-listview" data-role="listview" data-style="inset" data-endless-scroll="true"></ul>
         </div>
     </div>
 </div>
@@ -24,31 +19,34 @@
 
     function mobileListViewDataBindInitFlat() {
         var dataSource = new kendo.data.DataSource({
-            transport: {
-              read:{
-                        url: crudServiceBaseUrl + 'GetCommentsByRegPlate/' + $('#txtRegPlate').val(),
-                        contentType: "application/json"}
-            }
-        });
-
+                                                       transport: {
+                read:{
+                                                                   url: crudServiceBaseUrl + 'GetCommentsByRegPlate/' + $('#txtRegPlate').val(),
+                                                                   contentType: "application/json"
+                                                               }
+            },
+                                                       serverPaging: true,
+                                                       pageSize: 15
+                                                   });
+    
         $("#comment-listview").kendoMobileListView({
-            dataSource: dataSource,
-            template: $("#customListViewTemplate").html(),
-            pullToRefresh: true
-        });
+                                                       dataSource: dataSource,
+                                                       template: $("#customListViewTemplate").html(),
+                                                       pullToRefresh: true
+                                                   });
     }
+
 </script>
 
 <script type="text/x-kendo-template" id="customListViewTemplate">
-   
-   # if(Type === 1){ # 
-    <div class="positiveComment">
-    ${Comment}
-       </div>
-    # }else{ #
-       <div class="negativeComment">
-    ${Comment}
-        </div>
-    # } #
     
+    # if (Type === 1) { # 
+        <div class="positiveComment">
+            ${Comment}
+        </div>
+    # }else { #
+        <div class="negativeComment">
+            ${Comment}
+        </div>
+    # }    
 </script>

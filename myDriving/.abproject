@@ -6,7 +6,7 @@
   "AppIdentifier": "com.atic.myDriving",
   "DisplayName": "myDriving",
   "Author": "ATIC Solutions",
-  "Description": "",
+  "Description": "myDriving",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [

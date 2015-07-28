@@ -43,11 +43,11 @@ function show() {
     $(".previewImage").css('width', ($(window).height() * 20) / 100 + 'px');
     $(".previewImage").css('left', ($(window).width() - ($(window).height() * 20) / 100) / 2 + 'px');
     $(".commentScroller").css('top', ($(window).height() * 24) / 100 + 'px');
-    
+    $("#findIndexView #txtRegPlate").css('height', ($(".searchContainer").height() * 8) / 100 + 'px');
 }
 
 function capture(sender) { 
-    cameraApp._capturePhoto.apply(cameraApp, arguments)
+    cameraApp._capturePhoto.apply(cameraApp, arguments);
 }
 
 function removePicture() {   
